@@ -6,14 +6,14 @@ public class GradeMasukSMA{
     public static void main(String[] args){
         // deklarasi variabel
         int mtk,bindo,bing,ipa;
-        int sekolah = 73;
-        int sastra = 75;
-        int tekom = 80;
-        int totalsemuapelajaran = 4; 
-        int totalgrade;
-        int kelassanstra = 2;
-        int hasiltotalratasastra;
-        int hasilsastra;
+        int sekolah,sastra,tekom;
+        double averagesastra, averagesekolah;
+        boolean issastra,istekom,issekolah;
+
+        // inisialisasi nilai variabel
+        sekolah = 73;
+        sastra = 75;
+        tekom = 80;
 
         // membuat scanner baru
         Scanner keyboard = new Scanner(System.in);
@@ -31,19 +31,25 @@ public class GradeMasukSMA{
         System.out.println("Masukan Nilai IPA kamu");
         ipa = keyboard.nextInt();
 
-        // Operasi Mengatur Rata-rata
-        int hasilratamasuksma = mtk + bindo + bing + ipa;
-        totalgrade = hasilratamasuksma/totalsemuapelajaran;
+        // Operasi Mengatur Rata-rata integer
+        averagesekolah = ((mtk + bindo + bing + ipa) / 4);
+        
+        averagesastra = ((bindo + bing) / 2);
 
-        hasilsastra = bindo + bing;
-        hasiltotalratasastra = hasilsastra/kelassanstra;
+        // alogirtma boolean
+
+        issekolah = averagesekolah >= sekolah;
+
+        issastra = averagesastra >= sastra;
+        
+        istekom = mtk > tekom;
 
         // Menampilkan apa yang sudah simpan di variabel
         System.out.println("Jawaban Yang Di Olah Oleh Komputer :");
-        System.out.println("Nilai Rata Kamu Adalah.. " + totalgrade);
-        System.out.println("Apakah Kamu Lolos Masuk SMA Ini?  : " + (totalgrade >= sekolah));
-        System.out.println("Apakah Kamu Lolos Masuk Kelas Sastra?  : " + (hasiltotalratasastra >= sastra));
-        System.out.println("Apakah Kamu Lolos Kelas Teknik Komputer?  : " +(mtk >= tekom));
+        System.out.println("Nilai Rata Kamu Adalah.. " +  averagesekolah);
+        System.out.println("Apakah Kamu Lolos Masuk SMA Ini?  : " +  issekolah);
+        System.out.println("Apakah Kamu Lolos Masuk Kelas Sastra?  : " + issastra);
+        System.out.println("Apakah Kamu Lolos Kelas Teknik Komputer?  : " + istekom);
         
     }
 }
